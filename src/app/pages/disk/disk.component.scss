@@ -1,0 +1,15 @@
+@import '../../@theme/styles/themes';
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+
+}
+:host ::ng-deep .align-center{
+    text-align:center !important;
+  }
+
+:host ::ng-deep .btn-div-center {
+    display:block;
+    margin:0 auto;
+}
