@@ -19,14 +19,13 @@ export class DashboardComponent {
   memoryTotal = 100;
   memoryThreshold = { '0': { color: 'green' } };
   memoryConfigureFinish = false;
-  memoryUnitName = 'MB'
+  memoryUnitName = 'MiB'
 
   @ViewChild(CPUUtilizationComponet, { static: false })
   private cpuComponet: CPUUtilizationComponet;
 
   @ViewChild(NetSpeedComponet, { static: false })
   private netSpeedComponet: NetSpeedComponet;
-  // timer: any;
 
   constructor(private http: HttpClient) {
   }
@@ -64,6 +63,5 @@ export class DashboardComponent {
 
   ngOnDestroy(): void {
     this.running = false;
-    // clearTimeout(this.timer);
   }
 }

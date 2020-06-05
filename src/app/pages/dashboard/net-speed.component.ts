@@ -29,7 +29,6 @@ export class NetSpeedComponet implements OnDestroy {
         },
         xAxis: {
           type: 'datetime',
-          // tickPixelInterval: 150
         },
         yAxis: {
           tickInterval: 0.01,
@@ -40,20 +39,12 @@ export class NetSpeedComponet implements OnDestroy {
         credits: {
           enabled: false
         },
-        // tooltip: {
-        //     formatter: function () {
-        //         return '<b>' + this.series.name + '</b>: ' +
-        //             // Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
-        //             Highcharts.numberFormat(this.y, 2) + " MB/s";
-        //     }
-        // },
         tooltip: {
           shared: true,
           formatter: function () {
             let s = "";
             this.points.forEach(elem => {
               s += '<span style="color:' + elem.point.color + '">' + elem.series.name + ':  ' + elem.point.y.toFixed(2) + ' MiB/s<span><br>'
-                // Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
                 ;
             });
             return s;
@@ -77,7 +68,7 @@ export class NetSpeedComponet implements OnDestroy {
     });
   }
 
-  private reflow  = true;
+  private reflow = true;
 
   public addData(netTraffic: any) {
     if (this.reflow) {

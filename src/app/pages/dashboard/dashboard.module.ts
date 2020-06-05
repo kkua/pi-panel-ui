@@ -5,7 +5,6 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { ChartModule } from 'angular-highcharts';
-// import { HighchartsChartModule } from 'highcharts-angular';
 import { CPUUtilizationComponet } from "./cpu-utilization.component";
 import { NetSpeedComponet } from "./net-speed.component";
 @NgModule({

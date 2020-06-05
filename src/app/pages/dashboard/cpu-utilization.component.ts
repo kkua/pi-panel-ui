@@ -18,7 +18,6 @@ export class CPUUtilizationComponet implements OnDestroy {
   constructor(private theme: NbThemeService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
       this.cpuChart = new Chart({
-        
         colors: ['#ff8000', '#e20800', '#f3c300', '#ff0000', '#0028a9', '#a92928', '#28a929', '#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572',
           '#FF9655', '#FFF263', '#6AF9C4'],
         chart: {
@@ -31,7 +30,6 @@ export class CPUUtilizationComponet implements OnDestroy {
         },
         xAxis: {
           type: 'datetime',
-          // tickPixelInterval: 150
         },
         yAxis: {
           title: {
@@ -47,7 +45,6 @@ export class CPUUtilizationComponet implements OnDestroy {
             let s = "";
             this.points.forEach(elem => {
               s += '<span style="color:' + elem.point.color + '">' + elem.series.name + ':  ' + elem.point.y.toFixed(2) + ' %<span><br>'
-                // Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
                 ;
             });
             return s;
@@ -67,62 +64,11 @@ export class CPUUtilizationComponet implements OnDestroy {
           useUTC: false,
         },
       });
-
-      // this.cpuChart.setHeight(300);
-
-      // this.options = {
-      //   color: [
-      //     'red',    // color for data at index 0
-      //     'blue',   // color for data at index 1
-      //     'green',  // color for data at index 2
-      //     'black',  // color for data at index 3
-      //     //...
-      // ],
-      //   responsive: true,
-      //   maintainAspectRatio: false,
-      //   elements: {
-      //     rectangle: {
-      //       borderWidth: 2,
-      //     },
-      //   },
-      //   scales: {
-      //     xAxes: [
-      //       {
-      //         gridLines: {
-      //           display: true,
-      //           color: chartjs.axisLineColor,
-      //         },
-      //         ticks: {
-      //           fontColor: chartjs.textColor,
-      //         },
-      //       },
-      //     ],
-      //     yAxes: [
-      //       {
-      //         gridLines: {
-      //           display: false,
-      //           color: chartjs.axisLineColor,
-      //         },
-      //         ticks: {
-      //           fontColor: chartjs.textColor,
-      //         },
-      //       },
-      //     ],
-      //   },
-      //   legend: {
-      //     position: 'right',
-      //     labels: {
-      //       fontColor: chartjs.textColor,
-      //     },
-      //   },
-      // };
-
-    
     });
   }
 
 
-  private reflow  = true;
+  private reflow = true;
 
   public addData(cpuDataArr: Array<number>) {
     if (this.reflow) {
@@ -130,7 +76,7 @@ export class CPUUtilizationComponet implements OnDestroy {
       this.reflow = false;
     }
     var now = (new Date()).getTime();
-    cpuDataArr.forEach((cpuData,i) => {
+    cpuDataArr.forEach((cpuData, i) => {
       this.setData(i, now, cpuData);
     });
   }

@@ -30,51 +30,9 @@
         <ngx-gauge type="arch" cap="round" thick="8" [thresholds]="memoryThreshold" [max]="memoryTotal"
           [value]="memoryUsed" [append]="memoryUnitName">
         </ngx-gauge>
-        <div>已使用:{{ memoryUsed }}MiB</div>
+        <div>已使用：{{ memoryUsed }}MiB</div>
         <div>总容量：{{ memoryTotal }}MiB</div>
       </nb-card-body>
     </nb-card>
   </div>
-
-  <!-- <nb-card>
-    <nb-card-body>anuglar gauge
-        <div class="gauges-container">
-          <style>
-            mwl-gauge {
-  width: 150px;
-  height: 150px;
-  display: block;
-  padding: 10px;
-}
-          </style>
-            <mwl-gauge [max]="100" [dialStartAngle]="-90" [dialEndAngle]="-90.001" [label]="percentageValue"
-              [value]="gaugeValues[1]" [animated]="true" [animationDuration]="1">
-            </mwl-gauge>
-      
-            <mwl-gauge class="two" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [value]="gaugeValues[2]"
-              [animated]="true" [animationDuration]="2">
-            </mwl-gauge>
-      
-            <mwl-gauge class="three" [max]="100" [value]="gaugeValues[3]" [animated]="true" [animationDuration]="1.5">
-            </mwl-gauge>
-      
-            <mwl-gauge class="four" [max]="100" [dialStartAngle]="180" [dialEndAngle]="-90" [value]="gaugeValues[4]"
-              [animated]="true" [animationDuration]="2">
-            </mwl-gauge>
-      
-            <mwl-gauge class="five" [max]="200" [dialStartAngle]="0" [dialEndAngle]="-180" [value]="gaugeValues[5]"
-              [animated]="true" [animationDuration]="1">
-            </mwl-gauge>
-      
-            <mwl-gauge class="six" [max]="100" [dialStartAngle]="90.01" [dialEndAngle]="89.99" [dialRadius]="10"
-              [showValue]="false" [value]="gaugeValues[6]" [animated]="true" [animationDuration]="1">
-            </mwl-gauge>
-      
-            <mwl-gauge class="seven" [max]="100" [dialStartAngle]="-90" [dialEndAngle]="-90.001" [showValue]="false"
-              [value]="gaugeValues[6]" [animated]="true" [animationDuration]="1">
-            </mwl-gauge>
-      
-          </div>
-    </nb-card-body>
-  </nb-card> -->
 </div>

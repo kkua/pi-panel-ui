@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { LocalDataSource } from 'ng2-smart-table';
 import { CommonResp } from '../../app.component'
 
-export interface DiskInfo
-{
+export interface DiskInfo {
   kname: string; // kname
   vendor: string; // 制造商
   device_name: string; // 设备名称
@@ -17,36 +16,25 @@ export interface DiskInfo
   mount_point?: string; // 挂载点
 }
 
-
-
-// export interface DiskInfo {
-//   id: number;
-//   name: string;
-//   mountPoint?: string;
-// }
-
 export interface DiskInfoList {
   diskInfos: DiskInfo[];
 }
 
 @Injectable({ providedIn: 'root', })
 export class DiskService {
-  // 应该可以直接放component
   listDisk(): Observable<CommonResp> {
     return this.http.get<CommonResp>("/disk_info");
-    // console.log(resp);
-    // return of([{ id: 12, name: 'xxx', mountPoint: '/' }]);
   }
 
-  mountDisk(diskInfo: DiskInfo) : Observable<CommonResp> {
+  mountDisk(diskInfo: DiskInfo): Observable<CommonResp> {
     return this.http.post<CommonResp>("/mount_disk", diskInfo);
   }
 
-  removeDisk(diskInfo: DiskInfo) : Observable<CommonResp> {
+  removeDisk(diskInfo: DiskInfo): Observable<CommonResp> {
     return this.http.post<CommonResp>("/remove_disk", diskInfo);
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 }
 
 @Component({
@@ -62,7 +50,7 @@ export class DiskService {
     <button nbButton status="success" hero (click)="submit(mountPoint.value)">挂载</button>
   </nb-card-footer>
 </nb-card>`,
-styleUrls:['mount-disk-dialog.component.scss'],
+  styleUrls: ['mount-disk-dialog.component.scss'],
 
 }) export class MountPointDialogComponent {
   constructor(protected ref: NbDialogRef<MountPointDialogComponent>) { }
@@ -121,7 +109,7 @@ export class DiskOperationComponent implements ViewCell {
   }
 
   removeDisk() {
-    this.diskService.removeDisk(this.rowData).toPromise().then(resp=>{
+    this.diskService.removeDisk(this.rowData).toPromise().then(resp => {
       if (resp.code == 0) {
         this.rowData.mount_point = null;
         this.updateDiskInfo.emit(this.rowData);
@@ -133,6 +121,7 @@ export class DiskOperationComponent implements ViewCell {
   }
 
   constructor(private dialogService: NbDialogService, private diskService: DiskService, private toastrService: NbToastrService) {
+    
   }
 
 }
@@ -214,7 +203,7 @@ export class DiskComponent implements OnInit {
   }
 
   constructor(private diskService: DiskService, private toastrService: NbToastrService) {
-    
+
   }
 
   ngOnInit() {

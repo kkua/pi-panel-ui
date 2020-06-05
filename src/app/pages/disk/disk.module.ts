@@ -10,7 +10,6 @@ import { DiskComponent, DiskOperationComponent, MountPointDialogComponent } from
     NbActionsModule,
     NbButtonModule,
     NbDialogModule.forChild(),
-    // NbToastrModule.forRoot(),
     NbTreeGridModule,
     Ng2SmartTableModule,
   ],
